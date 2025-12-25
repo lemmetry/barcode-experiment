@@ -13,7 +13,7 @@ def read_data_matrix(ucc):
 
     for identifier in identifiers:
         try:
-            identifier_index = barcode.index(identifier, start_index)
+            identifier_index = ucc.index(identifier, start_index)
             identifiers_indices.append(identifier_index)
             start_index = identifier_index
         except ValueError:
@@ -23,8 +23,8 @@ def read_data_matrix(ucc):
     for i in range(len(identifiers_indices) - 1):
         start = identifiers_indices[i] + 2
         end = identifiers_indices[i + 1]
-        identifier_values.append(barcode[start:end])
-    identifier_values.append(barcode[identifiers_indices[-1] + 2:])
+        identifier_values.append(ucc[start:end])
+    identifier_values.append(ucc[identifiers_indices[-1] + 2:])
 
     return identifier_values
 

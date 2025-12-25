@@ -27,9 +27,3 @@ def read_data_matrix(ucc):
     identifier_values.append(ucc[identifiers_indices[-1] + 2:])
 
     return identifier_values
-
-barcode = input("Scan barcode: ")
-values = read_data_matrix(barcode)
-
-for i, j in zip(['GTIN', 'S/N', 'EXP', 'LOT'], values):
-    print(i, j)
